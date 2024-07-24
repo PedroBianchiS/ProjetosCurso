@@ -24,19 +24,19 @@ contrário disso:
 O primeiro dígito do CPF é 7
 """
 
-cpf = [7, 4, 6, 8, 2, 4, 8, 9, 0]
+digitosCpf = input('Digite o cpf que deseja validar: ')
+cpf = digitosCpf[:9]
+
 contadorRegressivo = 10
-resultadoPrimario = 0
+resultado = 0
 
 for numero in cpf:
-    numero *= contadorRegressivo
+    resultado += int(numero) * contadorRegressivo
     contadorRegressivo -= 1
-    resultadoPrimario += numero
-    print(numero)
-print(f'soma dos valores igual a: {resultadoPrimario}')
+print(f'soma dos valores igual a: {resultado}')
 
-resultadoFinal = (resultadoPrimario * 10) % 11
-if resultadoFinal > 9:
-    resultadoFinal = 0
+digitoValidado = resultado * 10 % 11
 
-print('O primeiro dígito do CPF é:', resultadoFinal)
+digitoValidado = digitoValidado if digitoValidado <= 9 else 0
+
+print('O primeiro dígito validado do CPF deve ser:', digitoValidado)
