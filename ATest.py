@@ -1,8 +1,7 @@
-resp = input('Digite o número que deseja saber os múltiplos até 100: ')
-numero = int(resp)
-cont = range(0, 100, numero)
+import decimal
 
-for numeros in cont:
-    print(numeros)
+num1 = decimal.Decimal('3.9')
+num2 = decimal.Decimal('10.5')
+num3 = num1 / num2
 
-print('boa!')
+print(num3)
