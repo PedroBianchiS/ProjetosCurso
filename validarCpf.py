@@ -1,42 +1,41 @@
-"""
-Calculo do primeiro dígito do CPF
-CPF: 746.824.890-70
-Colete a soma dos 9 primeiros dígitos do CPF
-multiplicando cada um dos valores por uma
-contagem regressiva começando de 10
-
-Ex.:  746.824.890-70 (746824890)
-   10  9  8  7  6  5  4  3  2
-*  7   4  6  8  2  4  8  9  0
-   70  36 48 56 12 20 32 27 0
-
-Somar todos os resultados: 
-70+36+48+56+12+20+32+27+0 = 301
-Multiplicar o resultado anterior por 10
-301 * 10 = 3010
-Obter o resto da divisão da conta anterior por 11
-3010 % 11 = 7
-Se o resultado anterior for maior que 9:
-    resultado é 0
-contrário disso:
-    resultado é o valor da conta
-
-O primeiro dígito do CPF é 7
-"""
-
-digitosCpf = input('Digite o cpf que deseja validar: ')
-cpf = digitosCpf[:9]
-
+cpfRecebido = '74682489070' 
+cpf = cpfRecebido[:9]
 contadorRegressivo = 10
 resultado = 0
 
 for numero in cpf:
     resultado += int(numero) * contadorRegressivo
     contadorRegressivo -= 1
-print(f'soma dos valores igual a: {resultado}')
+print(f'soma dos valores é igual a: {resultado}')
 
 digitoValidado = resultado * 10 % 11
 
 digitoValidado = digitoValidado if digitoValidado <= 9 else 0
 
-print('O primeiro dígito validado do CPF deve ser:', digitoValidado)
+print('O primeiro dígito validado do CPF deve ser:', digitoValidado, '\n')
+
+#
+print('Validando o segundo dígito...\n')
+#
+
+cpf2 = cpf + str(digitoValidado)
+contadorRegressivo = 11
+resultado = 0
+
+for numero in cpf2:
+    resultado += int(numero) * contadorRegressivo
+    contadorRegressivo -= 1
+print(f'soma dos valores é igual a: {resultado}')
+
+digitoValidado2 = resultado * 10 % 11
+
+digitoValidado2 = digitoValidado2 if digitoValidado2 <= 9 else 0
+
+print('O segundo dígito validado do CPF deve ser:', digitoValidado2, '\n')
+
+cpfGerado = f'{cpf}{digitoValidado}{digitoValidado2}'
+
+if cpfGerado == cpfRecebido:
+    print(f'O CPF {cpfGerado} é válido!')
+else:
+    print(f'O CPF {cpfGerado} não é válido!')
