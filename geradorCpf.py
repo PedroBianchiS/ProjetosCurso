@@ -1,13 +1,17 @@
+import random
 import re
 
-entrada = input('CPF: ')
-cpfRecebido = re.sub(r'[^0-9]', '', entrada)
+noveDigitos = ''
 
-cpf = cpfRecebido[:9]
+for i in range(9):
+    noveDigitos += str(random.randint(0, 9))
+print(noveDigitos)
+
+cpfRecebido = re.sub(r'[^0-9]', '', noveDigitos)
 contadorRegressivo = 10
 resultado = 0
 
-for numero in cpf:
+for numero in cpfRecebido:
     resultado += int(numero) * contadorRegressivo
     contadorRegressivo -= 1
 print(f'soma dos valores é igual a: {resultado}')
@@ -20,7 +24,7 @@ print('O primeiro dígito validado do CPF deve ser:', digitoValidado, '\n')
 
 print('Validando o segundo dígito...\n')
 
-cpf2 = cpf + str(digitoValidado)
+cpf2 = cpfRecebido + str(digitoValidado)
 contadorRegressivo = 11
 resultado = 0
 
@@ -35,9 +39,5 @@ digitoValidado2 = digitoValidado2 if digitoValidado2 <= 9 else 0
 
 print('O segundo dígito validado do CPF deve ser:', digitoValidado2, '\n')
 
-cpfGerado = f'{cpf}{digitoValidado}{digitoValidado2}'
-
-if cpfGerado == cpfRecebido:
-    print(f'O CPF {cpfGerado} é válido!')
-else:
-    print(f'O CPF {cpfGerado} não é válido!')
+cpfGerado = f'{cpfRecebido}{digitoValidado}{digitoValidado2}'
+print('O CPF gerado foi: ', cpfGerado)
