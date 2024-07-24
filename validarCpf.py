@@ -1,4 +1,8 @@
-cpfRecebido = '74682489070' 
+import re
+
+entrada = input('CPF: ')
+cpfRecebido = re.sub(r'[^0-9]', '', entrada)
+
 cpf = cpfRecebido[:9]
 contadorRegressivo = 10
 resultado = 0
