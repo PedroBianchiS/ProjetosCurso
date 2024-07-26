@@ -6,7 +6,6 @@ def fibonacci(n):
         a, b = b, a + b
     return sequence
 
-# Número de termos que você quer exibir
 num_terms = 20
 fibonacci_sequence = fibonacci(num_terms)
 
