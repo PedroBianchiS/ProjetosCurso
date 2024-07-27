@@ -6,7 +6,7 @@ def fibonacci(n):
         a, b = b, a + b
     return sequence
 
-num_terms = 20
+num_terms = 12
 fibonacci_sequence = fibonacci(num_terms)
 
 print(f"Sequência de Fibonacci com {num_terms} termos:")
