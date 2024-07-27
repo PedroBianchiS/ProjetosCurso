@@ -26,26 +26,22 @@ lista_de_listas_de_inteiros = [
     [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
 ]
 
-listaUnicos = []
-qtdDuplicados = 0
+def encontra_primeiro_duplicado(lista_de_inteiros):
+    numeros_checados = set()
+    primeiro_duplicado = -1
 
-for lista in lista_de_listas_de_inteiros:
-    for num in lista:
-        if num not in listaUnicos:
-            listaUnicos.append(num)
-        else:
-            qtdDuplicados += 1
-
-        if qtdDuplicados == 1:
+    for numero in lista_de_inteiros:
+        if numero in numeros_checados:
+            primeiro_duplicado = numero
             break
 
-    print(listaUnicos)
+        numeros_checados.add(numero)
 
-    if qtdDuplicados != 0:
-        print('Numero repetido: ',num)
-    else:
-        print('Nenhum número repetido:',-1)
+    return primeiro_duplicado
 
-    listaUnicos = []
-    qtdDuplicados = 0
-    print()
+
+for lista in lista_de_listas_de_inteiros:
+    print(
+        lista, 'Primeiro duplicado: ',
+        encontra_primeiro_duplicado(lista)
+    )
