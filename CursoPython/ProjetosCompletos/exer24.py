@@ -11,7 +11,7 @@ def calcularConsumoCombustível():
 
     distancia = tempo * velocidade
 
-    litrosGastos = distancia / 12
+    litrosGastos = distancia / kilMetragem
 
     print(f"\nResultado da viagem:")
     print(f"\nVelocidade média: {velocidade} km/h")

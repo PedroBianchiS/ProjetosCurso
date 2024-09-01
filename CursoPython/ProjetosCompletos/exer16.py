@@ -1,4 +1,9 @@
 """ 16 - Faça um algoritmo que leia três valores que representam os três lados de um triângulo e verifique se são válidos, determine se o triângulo é equilátero, isósceles ou escaleno. """
+def verTriangulo(a, b, c):
+    if a + b < c or a + c < b or b + c < a:
+        return True
+    else:
+        return False
 
 def tipoTriangulo(l1, l2, l3):
     if l1 == l2 == l3:

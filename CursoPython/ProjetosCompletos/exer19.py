@@ -1,9 +1,4 @@
-tabuadas = []
-
-for i in range(1, 11):
-    tabuadas.append(i)
-
-for num in tabuadas:
+for num in range(1, 11):
     print(f'Tabuada do {num}:')
-    for tabuada in tabuadas:
+    for tabuada in range (1, 11):
         print(num * tabuada)

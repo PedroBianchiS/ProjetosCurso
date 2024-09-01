@@ -3,16 +3,14 @@ Faça um algoritmo que calcule e imprima na tela em quantos anos serão necessá
 
 fran = 1.50
 sara = 1.10
-anos = []
+anos = 0
 
-for i in range(1, 81):
-    anos.append(i)
-    i += 1
+def saraMaiorFran(fran, sara, anos):
+    while sara < fran:
+        fran += 0.02
+        sara += 0.03
+        anos += 1
+    else:
+        print(f'Sara será maior que Franciso em {anos} anos, quando ela terá {sara:.2f} e Francisco terá {fran:.2f}')
 
-for ano in anos:
-    fran += 0.02
-    sara += 0.03
-    if sara > fran:
-        break
-
-print(f'Sara será maior que Franciso em {ano} anos, quando ela terá {sara:.2f} e Francisco terá {fran:.2f}')
+saraMaiorFran(fran, sara, anos)
